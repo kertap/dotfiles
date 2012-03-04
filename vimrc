@@ -9,13 +9,14 @@ set backspace=indent,eol,start
 
 set nobackup
 set nowritebackup
+set noswapfile
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+" map Q gq
 
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
@@ -81,6 +82,7 @@ endif " has("autocmd")
 
 " Softtabs, 2 spaces
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 
@@ -91,68 +93,68 @@ set laststatus=2
 let mapleader = ","
 
 " Edit the README_FOR_APP (makes :R commands work)
-map <Leader>R :e doc/README_FOR_APP<CR>
+" map <Leader>R :e doc/README_FOR_APP<CR>
 
 " Leader shortcuts for Rails commands
-map <Leader>m :Rmodel 
-map <Leader>c :Rcontroller 
-map <Leader>v :Rview 
-map <Leader>u :Runittest 
-map <Leader>f :Rfunctionaltest 
-map <Leader>tm :RTmodel 
-map <Leader>tc :RTcontroller 
-map <Leader>tv :RTview 
-map <Leader>tu :RTunittest 
-map <Leader>tf :RTfunctionaltest 
-map <Leader>sm :RSmodel 
-map <Leader>sc :RScontroller 
-map <Leader>sv :RSview 
-map <Leader>su :RSunittest 
-map <Leader>sf :RSfunctionaltest 
+" map <Leader>m :Rmodel 
+" map <Leader>c :Rcontroller 
+" map <Leader>v :Rview 
+" map <Leader>u :Runittest 
+" map <Leader>f :Rfunctionaltest 
+" map <Leader>tm :RTmodel 
+" map <Leader>tc :RTcontroller 
+" map <Leader>tv :RTview 
+" map <Leader>tu :RTunittest 
+" map <Leader>tf :RTfunctionaltest 
+" map <Leader>sm :RSmodel 
+" map <Leader>sc :RScontroller 
+" map <Leader>sv :RSview 
+" map <Leader>su :RSunittest 
+" map <Leader>sf :RSfunctionaltest 
 
 " Hide search highlighting
-map <Leader>h :set invhls <CR>
+" map <Leader>h :set invhls <CR>
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+" cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Duplicate a selection
 " Visual mode: D
-vmap D y'>p
+" vmap D y'>p
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
-vmap P p :call setreg('"', getreg('0')) <CR>
+" vmap P p :call setreg('"', getreg('0')) <CR>
 
 " For Haml
-au! BufRead,BufNewFile *.haml         setfiletype haml
+" au! BufRead,BufNewFile *.haml         setfiletype haml
 
 " No Help, please
-nmap <F1> <Esc>
+" nmap <F1> <Esc>
 
 " Press ^F from insert mode to insert the current file name
-imap <C-F> <C-R>=expand("%")<CR>
+" imap <C-F> <C-R>=expand("%")<CR>
 
 " Maps autocomplete to tab
-imap <Tab> <C-N>
+" imap <Tab> <C-N>
 
-imap <C-L> <Space>=><Space>
+" imap <C-L> <Space>=><Space>
 
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·
 
 " Edit routes
-command! Rroutes :e config/routes.rb
-command! Rschema :e db/schema.rb
+" command! Rroutes :e config/routes.rb
+" command! Rschema :e db/schema.rb
 
 " Local config
 if filereadable(".vimrc.local")
@@ -170,38 +172,38 @@ endif
 " highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Numbers
-set number
-set numberwidth=5
+" set number
+" set numberwidth=5
 
 " Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
+" let g:snippetsEmu_key = "<S-Tab>"
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
-set completeopt=longest,menu
-set wildmode=list:longest,list:full
-set complete=.,t
+" set completeopt=longest,menu
+" set wildmode=list:longest,list:full
+" set complete=.,t
 
 " case only matters with mixed case expressions
-set ignorecase
-set smartcase
+" set ignorecase
+" set smartcase
 
 " Tags
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-set tags=./tags;
+" let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+" set tags=./tags;
 
-let g:fuf_splitPathMatching=1
+" let g:fuf_splitPathMatching=1
 
 " Open URL
-command -bar -nargs=1 OpenURL :!open <args>
-function! OpenURL()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
-  echo s:uri
-  if s:uri != ""
-	  exec "!open \"" . s:uri . "\""
-  else
-	  echo "No URI found in line."
-  endif
-endfunction
-map <Leader>w :call OpenURL()<CR>
+" command -bar -nargs=1 OpenURL :!open <args>
+" function! OpenURL()
+  " let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
+  " echo s:uri
+  " if s:uri != ""
+	  " exec "!open \"" . s:uri . "\""
+  " else
+	  " echo "No URI found in line."
+  " endif
+" endfunction
+" map <Leader>w :call OpenURL()<CR>
 
