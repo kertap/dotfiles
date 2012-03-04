@@ -90,11 +90,21 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
+" Keep buffers open
+set hidden
+
 " Always display the status line
 set laststatus=2
 
+" Nerd Tree settings
+let NERDTreeQuitOnOpen=1
+
 " \ is the leader character
 let mapleader = ","
+
+" Nerd Tree mappings
+map <Leader>n :NERDTree<CR>
+map <Leader>m :NERDTreeMirror<CR>
 
 " Edit the README_FOR_APP (makes :R commands work)
 " map <Leader>R :e doc/README_FOR_APP<CR>
