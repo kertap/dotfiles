@@ -23,6 +23,7 @@ set incsearch		" do incremental searching
 "vnoremap p "_dp
 
 " Turn on pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " Switch syntax highlighting on, when the terminal has colors
