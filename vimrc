@@ -104,7 +104,7 @@ let mapleader = ","
 
 " Nerd Tree mappings
 map <Leader>n :NERDTree<CR>
-map <Leader>m :NERDTreeMirror<CR>
+map <Leader>m :NERDTreeFind<CR>
 
 " Edit the README_FOR_APP (makes :R commands work)
 " map <Leader>R :e doc/README_FOR_APP<CR>
